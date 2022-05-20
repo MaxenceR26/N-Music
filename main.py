@@ -11,7 +11,7 @@ class Main(tk.Tk):
         canva = tk.Canvas(self, width=314, height=533, bg="#D9D9D9", highlightthickness=0)
         canva.place(x=50, y=150)
 
-    # Updating window
+
     def update(self):
         self.geometry("1080x720")
         self.config(bg="#9A9A9A")
