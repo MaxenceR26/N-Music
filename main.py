@@ -9,6 +9,9 @@ class Window(tk.Tk):
     def __init__(self):
         super().__init__()
 
+        self.y = None
+        self.x = None
+        self.title_frame = tk.Frame(self)
         self.geometry("1080x720")
         self.config(bg=set_color('bg'))
         self.iconbitmap(select_image('icon.ico'))
@@ -21,7 +24,6 @@ class Window(tk.Tk):
         self.widget_title_bar()
 
     def widget_title_bar(self):
-        self.title_frame = tk.Frame(self)
         title_bar = tk.Canvas(self.title_frame, width=self.winfo_width(), height=100,
                               bg=set_color('darkbg'), highlightthickness=0)
         title_bar.create_text(250, title_bar.winfo_reqheight() // 2, text="N-Music",
@@ -96,4 +98,4 @@ class Window(tk.Tk):
         self.after(10, self.wm_deiconify)
 
 
-window = Window().mainloop()
+Window().mainloop()
