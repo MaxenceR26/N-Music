@@ -26,7 +26,7 @@ class Window(tk.Tk):
         self.title_frame = tk.Frame(self)
         title_bar = tk.Canvas(self.title_frame, width=self.winfo_width(), height=100,
                               bg=set_color('darkbg'), highlightthickness=0)
-        title_bar.create_text(250, title_bar.winfo_reqheight() // 2, text="N-Music",
+        title_bar.create_text(250, title_bar.winfo_reqheight() // 2, text="N'Music",
                               font=('Roboto', 40, 'bold'), fill=set_color('text'))
 
         icon_img = Image.open(select_image('icon.png'))
