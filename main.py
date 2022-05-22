@@ -15,7 +15,7 @@ class Window(tk.Tk):
         self.title("N'Music | Production")
         self.center()
         self.wm_overrideredirect(True)
-        self.after(10, lambda: self.set_appwindow())
+        self.set_appwindow()
 
         canvas = tk.Canvas(self, width=314, height=533, bg=set_color('tertiarybg'), highlightthickness=0)
         canvas.place(x=50, y=150)
@@ -51,7 +51,6 @@ class Window(tk.Tk):
         self.title_frame.pack()
 
         self.apply_drag([title_bar, icon])
-        self.set_appwindow()
 
     def mouse_down(self, event):
         self.x, self.y = event.x, event.y
