@@ -5,7 +5,6 @@ def select_image(name):
 def set_color(color):
     colors = {
         'bg': "#9A9A9A",
-        'green': '#77AB7D',
         'darkbg': "#242424",
         'text2': 'white',
         'text': 'white',
@@ -14,7 +13,7 @@ def set_color(color):
         'fourthbg': '#050B1C',
         'entrytext': 'white',
         'error': 'red',
-        'tertiarybg': '#2D4481',
+        'tertiarybg': '#D9D9D9',
         'copyright': '#C6CACB'
     }
     return colors[color]

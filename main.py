@@ -15,8 +15,9 @@ class Window(tk.Tk):
         self.title("N'Music | Production")
         self.center()
         self.wm_overrideredirect(True)
+        self.after(10, lambda: self.set_appwindow())
 
-        canvas = tk.Canvas(self, width=314, height=533, bg="#D9D9D9", highlightthickness=0)
+        canvas = tk.Canvas(self, width=314, height=533, bg=set_color('tertiarybg'), highlightthickness=0)
         canvas.place(x=50, y=150)
 
         self.widget_title_bar()
@@ -36,14 +37,16 @@ class Window(tk.Tk):
         icon.photo = icon_img
         icon.place(x=0, y=0)
 
-        image = tk.PhotoImage(file=select_image('exit_button.png')).subsample(4)
-        quit_button = tk.Button(self, image=image, background=set_color('darkbg'), cursor='hand2',
-                                bd=0, foreground=set_color('text'),
-                                activebackground=set_color('darkbg'),
-                                activeforeground=set_color('text'),
-                                font=('Roboto', 20, 'bold'), command=exit)
-        quit_button.photo = image
-        quit_button.place(x=self.winfo_width() - 85, y=6, width=80, height=80)
+        quit_img = Image.open(select_image('exit_button.png'))
+        quit_img = ImageTk.PhotoImage(quit_img.resize((title_bar.winfo_reqheight() // 2,
+                                                       title_bar.winfo_reqheight() // 2)))
+
+        quit_button = tk.Button(self, image=quit_img, background=set_color('darkbg'), cursor='hand2',
+                                bd=0, activebackground=set_color('darkbg'),
+                                font=('Roboto', 20, 'bold'), command=exit, relief='groove')
+        quit_button.photo = quit_img
+        quit_button.place(x=self.winfo_width() - title_bar.winfo_reqheight(), y=title_bar.winfo_reqheight() // 4,
+                          width=title_bar.winfo_reqheight() // 2 + 2, height=title_bar.winfo_reqheight() // 2 + 2)
         title_bar.pack()
         self.title_frame.pack()
 
@@ -98,4 +101,4 @@ class Window(tk.Tk):
         self.after(10, self.wm_deiconify)
 
 
-window = Window().mainloop()
+Window().mainloop()
